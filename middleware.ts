@@ -34,7 +34,7 @@ export default async function middleware(req: NextRequest) {
             views: 1,
           },
         });
-      } catch (createError) {
+      } catch (createError: any) {
         if (createError.code === 'P2002') {
           console.log('counter already exists, updating instead');
           await prisma.viewCounter.update({
