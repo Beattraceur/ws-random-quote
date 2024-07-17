@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
-const inter = Inter({ subsets: ['latin'] });
-
+//Set title for browsertabs
 export const metadata: Metadata = {
   title: 'W&S random quote',
   description: 'by Benjamin Hahl',
@@ -16,9 +14,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //Main layout that contains a fixed header and footer
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body>
         <Header />
         {children}
         <Footer />

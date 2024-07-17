@@ -10,10 +10,13 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
+  //url is an Prisma Accelerate URL so it can be used inside the middleware of a serverless deployment
   url       = env("DATABASE_URL")
+  //Direct URL is used when using migrations
   directUrl = env("DIRECT_DATABASE_URL")
 }
 
+//Custom model to keep track of the number of views for each path
 model ViewCounter {
   id    String @id @default(cuid()) @map("_id")
   path  String @unique
