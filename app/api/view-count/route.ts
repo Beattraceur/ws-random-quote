@@ -2,7 +2,8 @@
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
-
+//Info for Vercel
+export const runtime = 'edge';
 //Use Prisma Client with Accelerate to get it working even in serverless environments like Vercel
 const prisma = new PrismaClient().$extends(withAccelerate());
 
